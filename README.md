@@ -1,4 +1,4 @@
-# BoFs
+# Beacon Object Files
 
 
 ## Readfile BoF
