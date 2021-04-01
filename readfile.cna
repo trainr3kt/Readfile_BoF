@@ -1,0 +1,26 @@
+alias readfile {
+	
+	# Alias for Beacon ID and args
+    local('$bid $target $count');
+    
+    # Set the number of arguments
+    ($bid, $target) = @_;
+	
+	# Determine the amount of arguments
+    if (size(@_) != 2)
+    {
+        berror($bid, "Provide Name of File to Read ...");
+		return;
+    }
+	
+    # Read in the BOF
+    $handle = openf(script_resource("readfile.o"));
+    $data = readb($handle, -1);
+    closef($handle);
+
+    $args = bof_pack($bid , "z", $2);
+
+    # Run the BOF
+    # go = Entry point of the BOF
+    beacon_inline_execute($bid, $data, "go", $args);
+}
