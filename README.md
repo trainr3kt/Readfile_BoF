@@ -1,7 +1,4 @@
-# Beacon Object Files
-
-
-## Readfile BoF
+# Readfile BoF
 
 Not the prettiest code, but it will allow you to read file contents to beacon output.
 
