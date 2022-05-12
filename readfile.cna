@@ -1,3 +1,8 @@
+#register help
+beacon_command_register("readfile", "Beacon Object File to Read File Contents",
+        "Synopsis: readfile <filepath to read>\n" .
+        "Beacon Object File to Read File Contents.\n");
+
 alias readfile {
 	
 	# Alias for Beacon ID and args
