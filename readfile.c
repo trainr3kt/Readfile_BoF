@@ -38,10 +38,11 @@ void go(char* argc, int len)
 		
 		// sort out file size
 		lpFileSize = KERNEL32$GetFileSize(hFile, NULL);
-		char * rBuf = MSVCRT$calloc(lpFileSize+1, sizeof(char));
+		char * rBuf = (char*)MSVCRT$calloc(lpFileSize+1, sizeof(char));
 
 		// read the file
-		KERNEL32$ReadFile(hFile, rBuf, lpFileSize, 0, NULL);
+		DWORD out = 0;
+		KERNEL32$ReadFile(hFile, rBuf, lpFileSize, &out, NULL);
 		
 		BeaconPrintf(CALLBACK_OUTPUT, "%s", rBuf);
 		KERNEL32$CloseHandle(hFile);
